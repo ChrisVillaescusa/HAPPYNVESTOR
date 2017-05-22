@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522162109) do
+ActiveRecord::Schema.define(version: 20170522162221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "price"
+    t.string   "address"
+    t.integer  "room_number"
+    t.integer  "surface"
+    t.integer  "search_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["search_id"], name: "index_results_on_search_id", using: :btree
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "radius"
+    t.integer  "type_id"
+    t.integer  "budget"
+    t.integer  "surface_min"
+    t.integer  "room_min"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["type_id"], name: "index_searches_on_type_id", using: :btree
+    t.index ["user_id"], name: "index_searches_on_user_id", using: :btree
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,4 +66,7 @@ ActiveRecord::Schema.define(version: 20170522162109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "results", "searches"
+  add_foreign_key "searches", "types"
+  add_foreign_key "searches", "users"
 end
