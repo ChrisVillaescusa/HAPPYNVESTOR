@@ -6,7 +6,7 @@ class CreateSearches < ActiveRecord::Migration[5.0]
       t.references :type, foreign_key: true
       t.integer :budget
       t.integer :surface_min
-      t.interger :room_min
+      t.integer :room_min
       t.references :user, foreign_key: true
 
       t.timestamps
