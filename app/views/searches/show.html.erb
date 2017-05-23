@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="search-details">
+        <p>Adresse : <%= @search.address.capitalize %></p>
+        <% unless @search.radius.nil? %>
+          <p>Rayon : <%= @search.radius %></p>
+        <% end %>
+        <p>Type de bien : <%= @search.type.name %></p>
+        <p>Budget : <%= @search.budget %>€</p>
+        <% unless @search.surface_min.nil? %>
+          <p>Surface min. : <%= @search.surface_min %>m²</p>
+        <% end %>
+        <% unless @search.room_min.nil? %>
+          <p>Nb. de pièce min. : <%= @search.room_min %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="results-container">
+        <%= render 'result_card' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="map-container">
+        COUCOU JE SUIS UNE MAP !!!
+      </div>
+    </div>
+  </div>
+</div>
