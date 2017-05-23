@@ -23,6 +23,7 @@ user = User.new(
   password: 'motdepasse',
   phone: '0606060606'
 )
+user.photo_url = 'https://avatars1.githubusercontent.com/u/25774894'
 user.save!
 print '👤...'
 print 'Donne seeding Christian...'
