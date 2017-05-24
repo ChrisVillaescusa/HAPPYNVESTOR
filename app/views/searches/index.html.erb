@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Vos recherches : </p>
+  <h1>Vos recherches : </h1>
   <%  @searches.each do |search| %>
   <div class="product">
     <div class='product-upvote'>
@@ -20,6 +20,7 @@
       <li><a href=""><i class="fa fa-trash-o"></i></a></li>
       <li><a href=""><i class="fa fa-star"></i></a></li>
     </ul>
+    <%= link_to "", search, class: "show-link" %>
   </div>
   <% end %>
 </div>

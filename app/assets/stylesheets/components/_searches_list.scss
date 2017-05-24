@@ -1,13 +1,22 @@
-body{
-  background-color:#EAEAEA;
-}
 .product {
   display: flex;
   align-items: center;
   padding: 20px;
-  margin: 10px;
   border-radius: 3px;
   transition: all 0.15s ease;
+  position: relative;
+  .show-link {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    background: black;
+    opacity: 0;
+    &:hover{
+      opacity: 0.1;
+    }
+  }
 }
 
 /* Body design */
@@ -82,7 +91,6 @@ body{
 .product:hover {
   background: #f7f7fa;
   cursor: pointer;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
   font-size: 20px;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
