@@ -3,8 +3,8 @@
   <%  @searches.each do |search| %>
   <div class="product">
     <div class='product-upvote'>
-      <div class="product-arrow"></div>
-      <div classer='product-count'><%= rand(0..100) %></div>
+
+      <div class='product-count'><%= search.results.size %></div>
     </div>
     <img src="http://placehold.it/350x150" alt="kudoz" class="product-image hidden-xs">
     <div class='product-body'>
@@ -16,11 +16,28 @@
       <div>Nb. Pièces Min : <%= search.room_min %></div>
     </div>
     <ul class="list-inline product-controls hidden-sm hidden-xs">
-      <li><a href=""><i class="fa fa-heart"></i></a></li>
-      <li><a href=""><i class="fa fa-trash-o"></i></a></li>
-      <li><a href=""><i class="fa fa-star"></i></a></li>
+      <li>
+        <%= link_to "", search_path(search), method: :delete, class: "fa fa-trash-o" %>
+      </li>
     </ul>
     <%= link_to "", search, class: "show-link" %>
   </div>
   <% end %>
 </div>
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  </script>
+<% end %>

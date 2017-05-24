@@ -1,7 +1,7 @@
 .product {
   display: flex;
   align-items: center;
-  padding: 20px;
+  margin-bottom: 10px;
   border-radius: 3px;
   transition: all 0.15s ease;
   position: relative;
@@ -10,7 +10,6 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    z-index: 2;
     background: black;
     opacity: 0;
     &:hover{
@@ -52,6 +51,7 @@
 }
 .product-count {
   margin: 2px 0 0;
+  font-size: 20px;
 }
 .product-arrow {
   transition: all 0.15s ease;
@@ -71,6 +71,7 @@
   align-items: center;
   text-align: center;
   margin: 0px;
+  z-index: 1;
 }
 .product-controls a {
   padding: 0 20px;
