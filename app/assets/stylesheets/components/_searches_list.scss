@@ -1,11 +1,13 @@
+body{
+  background-color:#EAEAEA;
+}
 .product {
   display: flex;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
   margin: 10px;
   border-radius: 3px;
   transition: all 0.15s ease;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Body design */
@@ -80,6 +82,8 @@
 .product:hover {
   background: #f7f7fa;
   cursor: pointer;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 20px;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
   color: #5898f1;
