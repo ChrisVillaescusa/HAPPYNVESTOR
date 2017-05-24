@@ -2,6 +2,7 @@ class SearchesController < ApplicationController
   before_action :find_search, only: :show
 
   def index
+    @searches = Search.all
   end
 
   def show

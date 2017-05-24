@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Vos recherches : </h1>
+  <%  @searches.each do |search| %>
+  <div class="product">
+    <div class='product-upvote'>
+      <div class="product-arrow"></div>
+      <div classer='product-count'><%= rand(0..100) %></div>
+    </div>
+    <img src="http://placehold.it/350x150" alt="kudoz" class="product-image hidden-xs">
+    <div class='product-body'>
+      <h3><%= search.address %></h3>
+      <span><%= search.type.name %></span>
+      <div>Rayon : <%= search.radius %></div>
+      <div>Budget Max : <%= search.budget %> Euros</div>
+      <div>Surface : <%= search.surface_min %></div>
+      <div>Nb. Pièces Min : <%= search.room_min %></div>
+    </div>
+    <ul class="list-inline product-controls hidden-sm hidden-xs">
+      <li><a href=""><i class="fa fa-heart"></i></a></li>
+      <li><a href=""><i class="fa fa-trash-o"></i></a></li>
+      <li><a href=""><i class="fa fa-star"></i></a></li>
+    </ul>
+    <%= link_to "", search, class: "show-link" %>
+  </div>
+  <% end %>
+</div>
