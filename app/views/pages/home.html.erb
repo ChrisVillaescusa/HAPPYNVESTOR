@@ -4,7 +4,8 @@
       <h1>Happynvestor</h1>
         <%= simple_form_for(@search) do |f| %>
           <%= f.input :address, placeholder: "Address here plz", label: false %>
-          <%= f.input :type, placeholder: "Type here", label: false %> <!-- eventuellement faire un select sur le type -->
+          <%= f.input :radius, collection: %w(5 10 15 20 15 30 35 40 45 50), default: 5, label: false %>
+          <%= f.input :type_id, collection: @types, default: @types.first, label: false %> <!-- eventuellement faire un select sur le type -->
           <%= f.input :budget, placeholder: "Budget here", label: false %>
           <%= f.input :surface_min, placeholder: "Surface_min here", label: false %>
           <%= f.input :room_min, placeholder: "Room_min here", label: false %>
