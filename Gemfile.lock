@@ -237,6 +237,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
+  nokogiri
   pg
   pry-byebug
   pry-rails
@@ -244,6 +245,7 @@ DEPENDENCIES
   rails (= 5.0.3)
   rails-assets-underscore!
   redis
+  rest-client
   sass-rails
   simple_form
   spring
