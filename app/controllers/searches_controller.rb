@@ -18,6 +18,13 @@ class SearchesController < ApplicationController
   end
 
   def create
+    @search = Search.new(search_params)
+    if @search.save
+      redirect_to @search
+    else
+      @types = Type.all.order(name: :asc)
+      render 'pages/home'
+    end
   end
 
   def destroy
@@ -29,5 +36,9 @@ class SearchesController < ApplicationController
 
   def find_search
     @search = Search.find(params[:id])
+  end
+
+  def search_params
+    params.require(:search).permit(:address, :type_id, :budget, :surface_min, :room_min, :radius)
   end
 end
