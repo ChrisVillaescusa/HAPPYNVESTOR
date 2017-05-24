@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: /*linear-gradient(0deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),*/ url(<%= image_url 'background.jpg' %>);">
+  <div class="banner-content">
+    <div class="banner-title">
+      <h1>Happynvestor</h1>
+        <%= simple_form_for(@search) do |f| %>
+          <%= f.input :address, placeholder: "Address here plz", label: false %>
+          <%= f.input :type, placeholder: "Type here", label: false %> <!-- eventuellement faire un select sur le type -->
+          <%= f.input :budget, placeholder: "Budget here", label: false %>
+          <%= f.input :surface_min, placeholder: "Surface_min here", label: false %>
+          <%= f.input :room_min, placeholder: "Room_min here", label: false %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+ <!-- :collection => :radius, :label_method => :radius, -->
