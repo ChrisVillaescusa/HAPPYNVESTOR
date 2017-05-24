@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_action :find_search, only: :show
+  before_action :find_search, :only => [:show, :destroy]
 
   def index
     @searches = Search.all
@@ -28,7 +28,8 @@ class SearchesController < ApplicationController
   end
 
   def destroy
-
+    @search.destroy
+    redirect_to searches_path
   end
 
   private
