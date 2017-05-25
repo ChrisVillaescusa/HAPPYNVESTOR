@@ -9,10 +9,9 @@ class Result < ApplicationRecord
 private
 
   def publish_on_cable
-    SearchChannel.broadcast_to(
+    ActionCable.server.broadcast(
       "search_#{self.search.id}",
-      title: 'New things!',
-      body: 'All the news fit to print'
+      html: ApplicationController.new.render_to_string(partial: 'searches/result_card', locals: { result: self }, layout: false)
     )
   end
 end
