@@ -14,6 +14,11 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'geocoder'
 gem "gmaps4rails"
+gem 'nokogiri'
+gem 'rest-client'
+gem 'sidekiq'
+gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+gem 'sinatra', require: false
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
