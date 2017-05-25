@@ -9,7 +9,10 @@ class Result < ApplicationRecord
 private
 
   def publish_on_cable
-    # TODO: find the channel
-    # TODO: publish partial on channel search_#{self.search.id}
+    SearchChannel.broadcast_to(
+      "search_#{self.search.id}",
+      title: 'New things!',
+      body: 'All the news fit to print'
+    )
   end
 end

@@ -45,4 +45,21 @@
       });
     });
   </script>
+
+  <script>
+    App.cable.subscriptions.create(
+      {
+        channel: "SearchChannel",
+        search_id: <%= @search.id %>
+      },
+      {
+        connected: function(data) {
+          console.log("[CONNECTED]");
+        },
+        received: function(data) {
+          console.log(data);
+        }
+      }
+    );
+  </script>
 <% end %>
