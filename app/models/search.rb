@@ -5,4 +5,12 @@ class Search < ApplicationRecord
 
   validates :address, :type_id, presence: true
   validates :budget, numericality: { only_integer: true }
+
+  after_create :scrap_results
+
+  private
+
+  def scrap_results
+    Scrapper.perform_later(self.id)
+  end
 end

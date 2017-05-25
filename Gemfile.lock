@@ -6,6 +6,13 @@ GIT
       cloudinary (~> 1.1.0)
       rails (>= 3.2)
 
+GIT
+  remote: git://github.com/mhfs/sidekiq-failures.git
+  revision: 212fb506c9c198c0189b0056241bf7b6e763aaf0
+  specs:
+    sidekiq-failures (0.4.5)
+      sidekiq (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -67,14 +74,15 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.1)
-    coffee-rails (4.2.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -123,6 +131,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
+    mustermann (1.0.0)
     netrc (0.11.0)
     nio4r (2.0.0)
     nokogiri (1.7.2)
@@ -140,6 +149,8 @@ GEM
       pry (>= 0.10.4)
     puma (3.8.2)
     rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.3)
@@ -185,9 +196,19 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sidekiq (5.0.0)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.3, >= 3.3.3)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
     slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -247,7 +268,10 @@ DEPENDENCIES
   redis
   rest-client
   sass-rails
+  sidekiq
+  sidekiq-failures!
   simple_form
+  sinatra
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
