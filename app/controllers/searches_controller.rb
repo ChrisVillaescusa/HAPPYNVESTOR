@@ -21,6 +21,7 @@ class SearchesController < ApplicationController
     @search = Search.new(search_params)
     if @search.save
       redirect_to @search
+      Scrapper.perform_later(@search.id)
     else
       @types = Type.all.order(name: :asc)
       render 'pages/home'

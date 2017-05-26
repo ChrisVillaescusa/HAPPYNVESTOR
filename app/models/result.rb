@@ -4,7 +4,15 @@ class Result < ApplicationRecord
   belongs_to :search
   has_attachment :photo
 
-  after_create :publish_on_cable
+  after_save :publish_on_cable
+
+  def picture
+    if self.photo?
+      ActionController::Base.helpers.cl_image_path self.photo.path
+    else
+      ActionController::Base.helpers.image_path 'missing_result_pic.svg'
+    end
+  end
 
 private
 
