@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="results-container">
-        <%= render 'result_card' %>
+        <%= render 'results_card', search: @search %>
       </div>
     </div>
     <div class="col-md-4">
@@ -44,5 +44,26 @@
         }
       });
     });
+  </script>
+
+  <script>
+    App.cable.subscriptions.create(
+      {
+        channel: "SearchChannel",
+        search_id: <%= @search.id %>
+      },
+      {
+        connected: function(data) {
+          console.log("[CONNECTED]");
+        },
+        received: function(data) {
+          console.log(data);
+          $newResult = $(data.html)
+          $newResult.hide();
+          $('.results-container').prepend($newResult);
+          $newResult.slideDown();
+        }
+      }
+    );
   </script>
 <% end %>

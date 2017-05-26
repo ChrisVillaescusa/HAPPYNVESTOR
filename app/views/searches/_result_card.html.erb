@@ -1,15 +1,9 @@
-<div class="container-fluid">
-  <div class="row">
-    <% @search.results.each do |result| %>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path result.photo.path %>');">
-          <div class="card-category"><%= result.search.type.name %></div>
-          <div class="card-description">
-            <h2><%= result.price %>€</h2>
-            <p><%= result.address %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<div class="col-xs-12 col-sm-6">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
+    <div class="card-category"><%= result.search.type.name %></div>
+    <div class="card-description">
+      <h2><%= result.price %>€</h2>
+      <p><%= result.address %></p>
+    </div>
   </div>
 </div>
