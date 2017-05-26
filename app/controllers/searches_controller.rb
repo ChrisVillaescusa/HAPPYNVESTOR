@@ -1,3 +1,4 @@
+
 class SearchesController < ApplicationController
   before_action :find_search, :only => [:show, :destroy]
 

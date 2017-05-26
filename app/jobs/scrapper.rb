@@ -45,7 +45,7 @@ class Scrapper < ApplicationJob
     when 2000001..10000000 then budget = 31
     end
 
-    html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{search.address}&parrot=0&ret=#{type}")
+    html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{I18n.transliterate(search.address)}&parrot=0&ret=#{type}")
     html_doc = Nokogiri::HTML(html_file)
 
     html_doc.search('.mainList ul li').each do |article|
