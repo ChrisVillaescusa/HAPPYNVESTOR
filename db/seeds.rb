@@ -37,7 +37,7 @@ user = User.new(
   last_name: 'Villaescusa',
   email: 'christian.villaescusa@gmail.com',
   password: 'motdepasse',
-  phone: '0606060606'
+  phone: '0651847740'
 )
 # user.photo_url = 'https://avatars1.githubusercontent.com/u/25774894'
 user.save!
@@ -62,22 +62,22 @@ searches.each do |search|
 end
 puts 'Done seeding searches !'
 
-print 'Sedding results'
-results_yml = YAML.load(open('db/result.yml').read)
+# print 'Sedding results'
+# results_yml = YAML.load(open('db/result.yml').read)
 
-results_yml.each do |result|
-  type = Type.find_by(name: result['type'])
-  result_to_save = Result.new(
-    address: result['address'],
-    price: result['price'],
-    surface: result['surface'],
-    description: result['description'],
-    search: Search.find_by(type: type, address: result['city'])
-  )
-  # result_to_save.photo_url = result['photo']
-  result_to_save.save!
-  print '🔍...'
-end
-print 'Done seeding results ! '
+# results_yml.each do |result|
+#   type = Type.find_by(name: result['type'])
+#   result_to_save = Result.new(
+#     address: result['address'],
+#     price: result['price'],
+#     surface: result['surface'],
+#     description: result['description'],
+#     search: Search.find_by(type: type, address: result['city'])
+#   )
+#   # result_to_save.photo_url = result['photo']
+#   result_to_save.save!
+#   print '🔍...'
+# end
+# print 'Done seeding results ! '
 
 puts 'DONE SEEDING !!! YAAAAAAAAAAAAAAAAAAAAY !!!'
