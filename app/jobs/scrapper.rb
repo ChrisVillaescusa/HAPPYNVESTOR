@@ -77,6 +77,10 @@ class Scrapper < ApplicationJob
           result_to_save.description = result.css('.properties_description').text.squish.gsub('Description : ', '')
           result_to_save.search = search
           result_to_save.save!
+          ActionCable.server.broadcast(
+            "search_#{result_to_save.search.id}",
+            html: ApplicationController.new.render_to_string(partial: 'searches/result_card', locals: { result: result_to_save }, layout: false)
+          )
         end
       end
     end

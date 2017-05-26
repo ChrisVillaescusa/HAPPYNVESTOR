@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @search = Search.new
     @types = Type.all.order(name: :asc)
+    # Search.find(36).results.create
   end
 
 end

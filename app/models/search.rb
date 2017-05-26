@@ -13,6 +13,6 @@ class Search < ApplicationRecord
   private
 
   def scrap_results
-    Scrapper.perform_later(self.id)
+    Scrapper.set(wait: 10.seconds).perform_later(self.id)
   end
 end
