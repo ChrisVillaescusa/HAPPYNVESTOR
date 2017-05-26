@@ -1,30 +1,34 @@
 <% @title = "Vos recherches" %>
-<div class="container">
-  <h1>Vos recherches : </h1>
-  <%  @searches.each do |search| %>
-  <div class="product">
-    <div class='product-upvote'>
+<div class="wrapper">
+  <div class="container">
+    <h1>Vos recherches : </h1>
+    <%  @searches.each do |search| %>
+    <div class="product">
+      <div class='product-upvote'>
 
-      <div class='product-count'><%= search.results.size %></div>
+        <div class='product-count'><%= search.results.size %></div>
+      </div>
+      <img src="http://placehold.it/350x150" alt="kudoz" class="product-image hidden-xs">
+      <div class='product-body'>
+        <h3><%= search.address %></h3>
+        <span><%= search.type.name %></span>
+        <div>Rayon : <%= search.radius %></div>
+        <div>Budget Max : <%= search.budget %> Euros</div>
+        <div>Surface : <%= search.surface_min %></div>
+        <div>Nb. Pièces Min : <%= search.room_min %></div>
+      </div>
+      <ul class="list-inline product-controls hidden-sm hidden-xs">
+        <li>
+          <%= link_to "", search_path(search), method: :delete, data: {confirm: "You sure?"}, class: "fa fa-trash-o" %>
+        </li>
+      </ul>
+      <%= link_to "", search, class: "show-link" %>
     </div>
-    <img src="http://placehold.it/350x150" alt="kudoz" class="product-image hidden-xs">
-    <div class='product-body'>
-      <h3><%= search.address %></h3>
-      <span><%= search.type.name %></span>
-      <div>Rayon : <%= search.radius %></div>
-      <div>Budget Max : <%= search.budget %> Euros</div>
-      <div>Surface : <%= search.surface_min %></div>
-      <div>Nb. Pièces Min : <%= search.room_min %></div>
-    </div>
-    <ul class="list-inline product-controls hidden-sm hidden-xs">
-      <li>
-        <%= link_to "", search_path(search), method: :delete, data: {confirm: "You sure?"}, class: "fa fa-trash-o" %>
-      </li>
-    </ul>
-    <%= link_to "", search, class: "show-link" %>
+    <% end %>
   </div>
-  <% end %>
 </div>
+
+
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
