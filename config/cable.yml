@@ -10,4 +10,4 @@ test:
 
 production:
   <<: *default
-  url: ENV['REDISCLOUD_URL']
+  url: 'redis://rediscloud:1qhrfaECnHUmkXQx@redis-14288.c3.eu-west-1-1.ec2.cloud.redislabs.com:14288'
