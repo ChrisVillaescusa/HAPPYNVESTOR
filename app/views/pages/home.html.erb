@@ -5,40 +5,44 @@
         <div class="dropdown">
           <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+              <%= link_to searches_path do %>
+                <i class="fa fa-search"></i> <%= t(".profile", default: "Mes recherches") %>
+              <% end %>
+            </li>
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to root_path do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Page d'accueil") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnection") %>
               <% end %>
             </li>
           </ul>
         </div>
       </div>
     <% else %>
-      <%= link_to t(".sign_in", default: "Signup"), new_user_registration_path, class: "btn btn-warning" %> &nbsp
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Inscription"), new_user_registration_path, class: "btn btn-success btn-xs" %> &nbsp
+      <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
   <div class="banner-content">
     <div class="banner-title">
       <h1>Happynvestor</h1>
         <%= simple_form_for(@search) do |f| %>
-          <%= f.input :address, placeholder: "Address here plz", label: false %>
-          <%= f.input :radius, collection: %w(5 10 15 20 15 30 35 40 45 50), default: 5, label: false %>
+          <%= f.input :address, placeholder: "Saisissez une Adresse", label: false %>
           <%= f.input :type_id, collection: @types, default: @types.first, label: false %> <!-- eventuellement faire un select sur le type -->
-          <%= f.input :budget, placeholder: "Budget here", label: false %>
-          <%= f.input :surface_min, placeholder: "Surface_min here", label: false %>
-          <%= f.input :room_min, placeholder: "Room_min here", label: false %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.input :budget, placeholder: "Budget max", label: false %>
+          <%= f.input :surface_min, placeholder: "Surface min", label: false %>
+          <%= f.input :room_min, placeholder: "Pièces min", label: false %>
+          <%= f.button :submit,'Valider votre recherche', class: "btn btn-success btn-block btn-lg" %>
         <% end %>
     </div>
   </div>
