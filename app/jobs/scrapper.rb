@@ -45,8 +45,12 @@ class Scrapper < ApplicationJob
     when 2000001..10000000 then budget = 31
     end
 
+    search_count_log = search.results.count
+
     html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{I18n.transliterate(search.address)}&parrot=0&ret=#{type}")
     html_doc = Nokogiri::HTML(html_file)
+
+    new_results_found = 0
 
     html_doc.search('.mainList ul li').each do |article|
       lbc_id = eval(article.css('.list_item').attribute('data-info').value.gsub(':', '=>'))['ad_listid']
@@ -55,7 +59,8 @@ class Scrapper < ApplicationJob
         article_file = RestClient.get('https:' + article_url)
         article_doc = Nokogiri::HTML.parse(article_file)
 
-        article_doc.search('.adview').each do |result|
+        results_array = article_doc.search('.adview')
+        results_array.each do |result|
           result_to_save = Result.new(lbc_id: lbc_id)
           result_img = result.css('.item_image').attribute('data-popin-content')
           unless result_img.nil?
@@ -77,12 +82,19 @@ class Scrapper < ApplicationJob
           result_to_save.description = result.css('.properties_description').text.squish.gsub('Description : ', '')
           result_to_save.search = search
           result_to_save.save!
+          new_results_found += 1
           ActionCable.server.broadcast(
             "search_#{result_to_save.search.id}",
             html: ApplicationController.new.render_to_string(partial: 'searches/result_card', locals: { result: result_to_save }, layout: false)
           )
         end
       end
+    end
+    if search_count_log > 0
+      sms_api = CALLR::Api.new(ENV['CALLR_LOGIN'], ENV['CALLR_PASSWORD'])
+      total_results = new_results_found
+      user_phone = search.user.phone.gsub(/^0/, '+33')
+      sms_api.call('sms.send', 'SMS', "#{user_phone}", "Nous avons trouvé #{total_results} nouvelles anonces pour votre recherche : #{search.address}, http://happynvestor.herokuapp.com/search/#{search.id}", nil)
     end
   end
 end

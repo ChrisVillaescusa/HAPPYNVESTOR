@@ -20,6 +20,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
+    @search.user = current_user
     if @search.save
       redirect_to @search
     else
