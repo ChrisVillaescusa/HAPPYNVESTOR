@@ -90,11 +90,11 @@ class Scrapper < ApplicationJob
         end
       end
     end
-    if search_count_log > 0
-      sms_api = CALLR::Api.new(ENV['CALLR_LOGIN'], ENV['CALLR_PASSWORD'])
-      total_results = new_results_found
-      user_phone = search.user.phone.gsub(/^0/, '+33')
-      sms_api.call('sms.send', 'SMS', "#{user_phone}", "Nous avons trouvé #{total_results} nouvelles anonces pour votre recherche : #{search.address}, http://happynvestor.herokuapp.com/search/#{search.id}", nil)
-    end
+    # if search_count_log > 0
+    #   sms_api = CALLR::Api.new(ENV['CALLR_LOGIN'], ENV['CALLR_PASSWORD'])
+    #   total_results = new_results_found
+    #   user_phone = search.user.phone.gsub(/^0/, '+33')
+    #   sms_api.call('sms.send', 'SMS', "#{user_phone}", "Nous avons trouvé #{total_results} nouvelles anonces pour votre recherche : #{search.address}, http://happynvestor.herokuapp.com/search/#{search.id}", nil)
+    # end
   end
 end
