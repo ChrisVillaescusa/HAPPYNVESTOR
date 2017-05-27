@@ -21,16 +21,24 @@
     </div>
   </div>
   <div class="show-container">
+    <% if @search.results.any? %>
       <div class="results-container">
         <%= render 'results_card', search: @search %>
       </div>
-      <div class="map-container">
-        <div id="map" style="width: 100%; height: 600px;"></div>
+    <% else %>
+      <div class="waiting-container text-center">
+          <h3>Un instant...</h3>
+          <p>Nos serveurs sortent leur loupe pour trouver les meilleurs annonces...</p>
       </div>
+    <% end %>
+    <%= render 'result_modal' %>
+    <div class="map-container">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+    </div>
   </div>
 </div>
 
-<% content_for(:after_js) do %>
+<% content_for :after_js do %>
   <script>
     $(document).on('ready', function() {
       var handler = Gmaps.build('Google');
@@ -57,6 +65,10 @@
           console.log(data);
           $newResult = $(data.html)
           $newResult.hide();
+          if ($('.waiting-container').is(':visible')) {
+            $('.show-container').prepend('<div class="results-container"></div>');
+            $('.waiting-container').hide();
+          };
           $('.results-container').prepend($newResult);
           $newResult.slideDown();
         }
