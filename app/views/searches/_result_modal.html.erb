@@ -1,28 +1,6 @@
-<div class="modal fade" id="descModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="result-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h5 class="modal-title">Description de l'annonce</h5>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-block">Contacter l'agence</button>
-        <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
-      </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-<% content_for :after_js do %>
-  <script>
-  $('.card-link').on('click', function (event) {
-    $('#descModal').modal('toggle')
-    var card = $(event.target).parent();
-    var content = card['0'].dataset.whatever;
-    var modal = $('#descModal');
-    modal.find('.modal-body').append('p').text(content)
-  });
-  </script>
-<% end %>
