@@ -21,6 +21,7 @@ gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
 gem 'sinatra', require: false
 gem 'devise-i18n'
 gem 'callr'
+gem 'pundit'
 
 
 source 'https://rails-assets.org' do
