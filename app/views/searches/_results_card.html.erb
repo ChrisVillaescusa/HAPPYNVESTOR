@@ -1,5 +1,9 @@
-<% search.results.each do |result| %>
-  <% if result %>
-    <%= render "searches/result_card", result: result %>
-  <% end %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <% search.results.each do |result| %>
+      <% if result %>
+        <%= render "searches/result_card", result: result %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
