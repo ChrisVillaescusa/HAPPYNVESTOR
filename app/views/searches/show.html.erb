@@ -21,17 +21,14 @@
       </div>
     <% else %>
       <div class="waiting-container text-center">
-          <h3>Un instant...</h3>
-          <p>Nos serveurs sortent leur loupe pour trouver les meilleurs annonces...</p>
-      <div class="map-container">
-        <%= image_tag display_static_map(@search) %>
+        <h3>Un instant...</h3>
+        <p>Nos serveurs sortent leur loupe pour trouver les meilleurs annonces...</p>
       </div>
     <% end %>
-    <%= render 'result_modal' %>
     <div class="map-container">
-      <div id="map" style="width: 100%; height: 600px;"></div>
+      <%= image_tag display_static_map(@search) %>
     </div>
-  </div>
+    <%= render 'result_modal' %>
 </div>
 
 <% content_for :after_js do %>
