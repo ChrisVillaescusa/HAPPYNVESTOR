@@ -1,8 +1,8 @@
-<div class="card" data-toggle="modal" data-target="descModal" data-whatever="<%= result.description %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
   <div class="card-category"><%= result.search.type.name %></div>
   <div class="card-description">
     <h2><%= result.price %>€</h2>
     <p><%= result.address %></p>
   </div>
-  <div class="card-link"></div>
+  <%= link_to "", local_assigns[:path] ? path : result_path(result), class: "card-link", data: { toggle: "modal", target: "#result-modal" } %>
 </div>
