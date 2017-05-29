@@ -1,0 +1,11 @@
+<div class="modal-body">
+  <div class="header-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @result.picture %>');">
+    <div class="type"><p><%= @result.search.type.name %></p></div>
+    <div class="price"><h2><%= @result.price %>€</h2></div>
+  </div>
+  <div class="description"><%= @result.description %></div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary btn-block">Contacter l'agence</button>
+  <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+</div>
