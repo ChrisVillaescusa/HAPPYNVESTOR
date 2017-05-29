@@ -23,6 +23,8 @@
       <div class="waiting-container text-center">
           <h3>Un instant...</h3>
           <p>Nos serveurs sortent leur loupe pour trouver les meilleurs annonces...</p>
+      <div class="map-container">
+        <%= image_tag display_static_map(@search) %>
       </div>
     <% end %>
     <%= render 'result_modal' %>
