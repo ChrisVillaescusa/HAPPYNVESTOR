@@ -1,24 +1,18 @@
 <% @title = @search.address + " " + @search.budget.to_s + "€" %>
 <div class="show-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="search-details">
-          <p>Adresse : <%= @search.address.capitalize %></p>
-          <% unless @search.radius.nil? %>
-            <p>Rayon : <%= @search.radius %></p>
-          <% end %>
-          <p>Type de bien : <%= @search.type.name %></p>
-          <p>Budget : <%= @search.budget %>€</p>
-          <% unless @search.surface_min.nil? %>
-            <p>Surface min. : <%= @search.surface_min %>m²</p>
-          <% end %>
-          <% unless @search.room_min.nil? %>
-            <p>Nb. de pièce min. : <%= @search.room_min %></p>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="search-infos">
+    <p>Adresse : <%= @search.address.capitalize %></p>
+    <% unless @search.radius.nil? %>
+      <p>Rayon : <%= @search.radius %></p>
+    <% end %>
+    <p>Type de bien : <%= @search.type.name %></p>
+    <p>Budget : <%= @search.budget %>€</p>
+    <% unless @search.surface_min.nil? %>
+      <p>Surface min. : <%= @search.surface_min %>m²</p>
+    <% end %>
+    <% unless @search.room_min.nil? %>
+      <p>Nb. de pièce min. : <%= @search.room_min %></p>
+    <% end %>
   </div>
   <div class="show-container">
     <% if @search.results.any? %>

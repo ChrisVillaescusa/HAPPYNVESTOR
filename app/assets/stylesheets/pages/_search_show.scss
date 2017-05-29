@@ -4,6 +4,15 @@
   height: 90vh;
   align-items: stretch;
   margin-top: 75px;
+  .search-infos {
+    height: 30%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
   .show-container {
     display: flex;
     flex-grow: 10;
@@ -35,5 +44,11 @@
         border-radius: 4px;
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .map-container{
+    display: none;
   }
 }
