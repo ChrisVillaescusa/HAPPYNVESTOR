@@ -53,17 +53,17 @@ class Scrapper < ApplicationJob
 
     city = search.address.parameterize
     puts "City parameterized"
-    search_url = "https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}"
-    # search_encoded_url = URI::encode(search_url)
-    # begin
-    #   html_file = RestClient.get(search_encoded_url)
-    # rescue RestClient::ExceptionWithResponse => e
-    #   puts "ALERT : Error with RestClient"
-    #   puts e.inspect
-    #   html_file = ""
-    # end
+    begin
+      search_url = "https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}"
+      search_encoded_url = URI::encode(search_url)
+      html_file = RestClient.get(search_encoded_url)
+    rescue RestClient::ExceptionWithResponse => e
+      puts "ALERT : Error with RestClient"
+      puts e.inspect
+      html_file = ""
+    end
     puts 'ASSIGNED HTML_FILE' * 20
-    html_doc = Nokogiri::HTML(open(search_url))
+    html_doc = Nokogiri::HTML(html_file, 'UTF-8', nil)
     puts 'ASSIGNED HTML_DOC' * 20
 
     new_results_found = 0
@@ -76,9 +76,9 @@ class Scrapper < ApplicationJob
         article_url = article.css('.list_item').attribute('href').value
         puts 'GOT RESULT URL' * 20
         result_url = "https:#{article_url}"
-        # result_encoded_url = URI::encode(result_url)
-        # article_file = RestClient.get(result_encoded_url)
-        article_doc = Nokogiri::HTML(open(result_url))
+        result_encoded_url = URI::encode(result_url)
+        article_file = RestClient.get(result_encoded_url)
+        article_doc = Nokogiri::HTML(article_file, 'UTF-8', nil)
 
         results_array = article_doc.search('.adview')
         results_array.each do |result|
