@@ -54,9 +54,9 @@ class Scrapper < ApplicationJob
     city = search.address.parameterize
     puts "City parameterized"
     begin
-      html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}")
-    rescue RestClient::ExceptionWithResponse => e
-      puts "ALERT : Error with RestClient"
+      html_file = HTTParty.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}")
+    rescue HTTParty::ExceptionWithResponse => e
+      puts "ALERT : Error with HTTParty"
       puts e.inspect
       html_file = ""
     end
@@ -73,7 +73,7 @@ class Scrapper < ApplicationJob
       unless Result.find_by(lbc_id: lbc_id)
         article_url = article.css('.list_item').attribute('href').value
         puts 'GOT RESULT URL' * 20
-        article_file = RestClient.get('https:' + article_url)
+        article_file = HTTParty.get('https:' + article_url)
         article_doc = Nokogiri::HTML.parse(article_file)
 
         results_array = article_doc.search('.adview')

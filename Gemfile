@@ -22,6 +22,7 @@ gem 'sinatra', require: false
 gem 'devise-i18n'
 gem 'callr'
 gem 'pundit'
+gem 'httparty'
 
 
 source 'https://rails-assets.org' do
