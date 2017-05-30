@@ -80,6 +80,7 @@ class Scrapper < ApplicationJob
         results_array.each do |result|
           puts 'GOT INSIDE RESULT URL' * 20
           result_to_save = Result.new(lbc_id: lbc_id)
+          result_to_save.url=(article_url)
           puts 'CREATED NEW RESULT' * 20
           result_img = result.css('.item_image').attribute('data-popin-content')
           puts 'GOT NEW RESULT IMG' * 20
