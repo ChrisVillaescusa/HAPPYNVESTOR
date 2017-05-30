@@ -36,16 +36,60 @@
   <div class="banner-content">
     <div class="banner-title">
       <h1>Happynvestor</h1>
-        <%= simple_form_for(@search) do |f| %>
-          <%= f.input :address, placeholder: "Saisissez une Adresse", label: false %>
-          <%= f.input :type_id, collection: @types, default: @types.first, label: false %> <!-- eventuellement faire un select sur le type -->
-          <%= f.input :budget, placeholder: "Budget max", label: false %>
-          <%= f.input :surface_min, placeholder: "Surface min", label: false %>
-          <%= f.input :room_min, placeholder: "Pièces min", label: false %>
-          <%= f.button :submit,'Valider votre recherche', class: "btn btn-success btn-block btn-lg" %>
-        <% end %>
+      <div id="new-search">
+        <%=  render "searches/form", search: @search, types: @types %>
+      </div>
     </div>
   </div>
 </div>
 
- <!-- :collection => :radius, :label_method => :radius, -->
+<div class="container">
+
+    <div class = "card_home_wrapper">
+      <div class = "card_home_img" style = "background-image: url(<%= image_path "rentabilite.jpg" %>);" >
+      </div>
+      <div class="card_home_box">
+        <header class="card_home_item card_home_header">
+          <h2 class = "card_home_item card_home_item--small card_home_title">Rentabilité
+          </h2>
+        </header>
+        <hr class = "card_home_item card_home_divider">
+        <div >
+          <p>Comparateur de rentabilité.</p>
+          <p>Nous vous permettons de trouver facilement le bien idéal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card_home_wrapper">
+      <div class="card_home_img" style="background-image: url(<%= image_path "simplicite.jpg" %>);">
+      </div>
+      <div class="card_home_box">
+        <header class="card_home_item card_home_header">
+          <h2 class="card_home_item card_home_item--small card_home_title">Simplicité</h2>
+        </header>
+        <hr class="card_home_item card_home_divider">
+        <div>
+          <p>Quelques clics suffisent.</p>
+          <p>Nous vous simplifions votre recherche et l'identification de vos acteurs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card_home_wrapper">
+      <div class="card_home_img" style="background-image: url(<%= image_path "temps.jpg" %>);">
+      </div>
+      <div class="card_home_box">
+        <header class="card_home_item card_home_header">
+          <h2 class="card_home_item card_home_item--small card_home_title">Gain de temps</h2>
+        </header>
+        <hr class="card_home_item card_home_divider">
+        <div>
+          <p>Alerte par SMS.</p>
+          <p>Toutes les informations viennent à vous automatiquement.</p>
+        </div>
+      </div>
+    </div>
+
+
+</div>
