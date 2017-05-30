@@ -1,6 +1,7 @@
-<%= simple_form_for((search), remote: true) do |f| %>
+
+<%= simple_form_for(search) do |f| %>
   <%= f.input :address, placeholder: "Saisissez une Adresse", label: false %>
-  <%= f.input :type_id, collection: types, default: types.first, label: false %> <!-- eventuellement faire un select sur le type -->
+  <%= f.input :type_id, collection: types, default: types.first, label: false  %> <!-- eventuellement faire un select sur le type -->
   <%= f.input :budget, placeholder: "Budget max", label: false %>
   <%= f.input :surface_min, placeholder: "Surface min", label: false %>
   <%= f.input :room_min, placeholder: "Pièces min", label: false %>

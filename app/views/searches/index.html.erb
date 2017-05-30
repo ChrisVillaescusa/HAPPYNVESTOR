@@ -3,7 +3,7 @@
   <div class="container">
     <h1>Vos recherches : </h1>
     <%  @searches.each do |search| %>
-    <div class="product">
+    <div class="product" data-search-id= "<%= search.id %>">
       <div class='product-upvote'>
 
         <div class='product-count'><%= search.results.size %></div>
@@ -19,7 +19,7 @@
       </div>
       <ul class="list-inline product-controls hidden-sm hidden-xs">
         <li>
-          <%= link_to "", search_path(search), method: :delete, class: "fa fa-trash-o" %>
+          <%= link_to "", search_path(search), method: :delete, remote: true, class: "fa fa-trash-o" %>
         </li>
       </ul>
       <%= link_to "", search, class: "show-link" %>
