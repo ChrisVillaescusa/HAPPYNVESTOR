@@ -53,15 +53,17 @@ class Scrapper < ApplicationJob
 
     city = search.address.parameterize
     puts "City parameterized"
-    begin
-      html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}")
-    rescue RestClient::ExceptionWithResponse => e
-      puts "ALERT : Error with RestClient"
-      puts e.inspect
-      html_file = ""
-    end
+    search_url = "https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}"
+    # search_encoded_url = URI::encode(search_url)
+    # begin
+    #   html_file = RestClient.get(search_encoded_url)
+    # rescue RestClient::ExceptionWithResponse => e
+    #   puts "ALERT : Error with RestClient"
+    #   puts e.inspect
+    #   html_file = ""
+    # end
     puts 'ASSIGNED HTML_FILE' * 20
-    html_doc = Nokogiri::HTML(html_file)
+    html_doc = Nokogiri::HTML(open(search_url))
     puts 'ASSIGNED HTML_DOC' * 20
 
     new_results_found = 0
@@ -73,8 +75,10 @@ class Scrapper < ApplicationJob
       unless Result.find_by(lbc_id: lbc_id)
         article_url = article.css('.list_item').attribute('href').value
         puts 'GOT RESULT URL' * 20
-        article_file = RestClient.get('https:' + article_url)
-        article_doc = Nokogiri::HTML.parse(article_file)
+        result_url = "https:#{article_url}"
+        # result_encoded_url = URI::encode(result_url)
+        # article_file = RestClient.get(result_encoded_url)
+        article_doc = Nokogiri::HTML(open(result_url))
 
         results_array = article_doc.search('.adview')
         results_array.each do |result|
@@ -94,15 +98,15 @@ class Scrapper < ApplicationJob
           puts 'ASSIGNED NEW RESULT PRICE' * 20
           result.css('.properties .line').each do |line|
             puts 'GOT INSIDE RESULT LI' * 20
-            property = line.css('.property').text.strip
+            property = line.css('.property').text.strip.parameterize
             puts 'ASSIGNED PROPERTY' * 20
             case property
-            when "Ville" then result_to_save.address = line.css('.value').text.strip
+            when "ville" then result_to_save.address = line.css('.value').text.strip
               puts 'ASSIGNED NEW RESULT ADDRESS' * 20
-            when "Pièces" then result_to_save.room_number = line.css('.value').text.to_i
-              puts 'ASSIGNED NEW RESULT ROOM_NUMBER' * 20
-            when "Surface" then result_to_save.surface = line.css('.value').text.to_i
-              puts 'ASSIGNED NEW RESULT SURFACE' * 20
+            # when "pieces" then result_to_save.room_number = line.css('.value').text.to_i
+            #   puts 'ASSIGNED NEW RESULT ROOM_NUMBER' * 20
+            # when "surface" then result_to_save.surface = line.css('.value').text.to_i
+            #   puts 'ASSIGNED NEW RESULT SURFACE' * 20
             else next
             end
           end
