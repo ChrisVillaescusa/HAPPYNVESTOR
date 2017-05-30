@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   before_action :find_search, :only => [:show, :destroy]
 
   def index
-    @searches = Search.where(user: @current_user)
+    @searches = Search.where(user: current_user)
   end
 
   def show

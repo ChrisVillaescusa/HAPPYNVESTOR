@@ -5,6 +5,7 @@
 .banner {
     position: absolute;
     color: #5C5C5C;
+    font-family: 'Helvetica', sans-serif;
     text-align: center;
     height: calc(100vh);
     width: 100%;
@@ -13,6 +14,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+
   .log-btns {
     position: absolute;
     top: 10px;
@@ -31,7 +33,5 @@
   }
   .banner-title {
     color: black;
-    font-family: 'Vollkorn', serif;
-    // font-family: 'Lilita One', cursive;
   }
 }

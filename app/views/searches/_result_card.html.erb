@@ -1,9 +1,8 @@
-<div class="col-xs-12 col-sm-6">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
-    <div class="card-category"><%= result.search.type.name %></div>
-    <div class="card-description">
-      <h2><%= result.price %>€</h2>
-      <p><%= result.address %></p>
-    </div>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
+  <div class="card-category"><%= result.search.type.name %></div>
+  <div class="card-description">
+    <h2><%= result.price %>€</h2>
+    <p><%= result.address %></p>
   </div>
+  <%= link_to "", local_assigns[:path] ? path : result_path(result), class: "card-link", data: { toggle: "modal", target: "#result-modal" } %>
 </div>
