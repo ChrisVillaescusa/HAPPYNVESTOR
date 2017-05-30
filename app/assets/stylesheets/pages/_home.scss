@@ -35,3 +35,32 @@
     color: black;
   }
 }
+
+$error-color: red;
+
+// classe pour les messages d'erreurs de la home
+.has-error .help-block {
+  position: absolute;
+  margin: 0;
+  color: white;
+  background: $error-color;
+  left: 100%;
+  width: 200px;
+  margin-left: -1px;
+  top: 0;
+  padding: 6px 0px;
+  border-radius: 4px;
+  margin-top: 1px;
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-color: transparent;
+    border-style: solid;
+    border-right-color: $error-color;
+    position: absolute;
+    top: 7px;
+    left: -16px;
+  }
+}
