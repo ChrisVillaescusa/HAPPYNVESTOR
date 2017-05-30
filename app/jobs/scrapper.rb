@@ -107,8 +107,8 @@ class Scrapper < ApplicationJob
           ActionCable.server.broadcast(
             "search_#{result_to_save.search.id}",
             html: ApplicationController.new.render_to_string(partial: 'searches/result_card', locals: { result: result_to_save, path: Rails.application.routes.url_helpers.result_path(result_to_save, locale: nil) }, layout: false)
-            puts 'SENDED NEW RESULT THROUGH WEBSOCKET' * 20
           )
+          puts 'SENDED NEW RESULT THROUGH WEBSOCKET' * 20
         end
       end
     end
