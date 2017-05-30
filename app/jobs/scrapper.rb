@@ -64,7 +64,7 @@ class Scrapper < ApplicationJob
           result_to_save = Result.new(lbc_id: lbc_id)
           result_img = result.css('.item_image').attribute('data-popin-content')
           unless result_img.nil?
-            result_to_save.photo_url = 'https:' + result_img.value
+            result_to_save.img = 'https:' + result_img.value
           end
           result_to_save.title = result.css('.no-border').children.text.strip
 
