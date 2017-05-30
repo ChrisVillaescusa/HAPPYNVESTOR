@@ -51,7 +51,15 @@ class Scrapper < ApplicationJob
     search_count_log = search.results.count
     puts 'SET RESULT LOG' * 20
 
-    html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{I18n.transliterate(search.address)}&parrot=0&ret=#{type}")
+    city = search.address.parameterize
+    puts "City parameterized"
+    begin
+      html_file = RestClient.get("https://www.leboncoin.fr/ventes_immobilieres/offres/?th=1&pe=#{budget}&location=#{city}&parrot=0&ret=#{type}")
+    rescue RestClient::ExceptionWithResponse => e
+      puts "ALERT : Error with RestClient"
+      puts e.inspect
+      html_file = ""
+    end
     puts 'ASSIGNED HTML_FILE' * 20
     html_doc = Nokogiri::HTML(html_file)
     puts 'ASSIGNED HTML_DOC' * 20
