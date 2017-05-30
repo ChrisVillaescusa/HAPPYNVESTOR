@@ -45,7 +45,7 @@ $error-color: red;
   color: white;
   background: $error-color;
   left: 100%;
-  width: 200px;
+  width: 220px;
   margin-left: -1px;
   top: 0;
   padding: 6px 0px;
@@ -60,7 +60,7 @@ $error-color: red;
     border-style: solid;
     border-right-color: $error-color;
     position: absolute;
-    top: 7px;
+    top: 9px;
     left: -16px;
   }
 }
