@@ -7,3 +7,8 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+$('.card_home_wrapper').hover(
+       function(){ $(this).addClass('hatch') },
+       function(){ $(this).removeClass('hatch') }
+)
