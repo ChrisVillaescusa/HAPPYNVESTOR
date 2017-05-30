@@ -84,9 +84,7 @@ class Scrapper < ApplicationJob
           result_to_save.price = result.css('.item_price').attribute('content').value.to_i
           puts 'ASSIGNED NEW RESULT PRICE' * 20
           result.css('.properties .line').each do |line|
-            puts 'GOT INSIDE RESULT LI' * 20
             property = line.css('.property').text.strip
-            puts 'ASSIGNED PROPERTY' * 20
             case property
             when "Ville" then result_to_save.address = line.css('.value').text.strip
               puts 'ASSIGNED NEW RESULT ADDRESS' * 20
