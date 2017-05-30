@@ -5,9 +5,8 @@ class Search < ApplicationRecord
   belongs_to :user
   has_many :results, dependent: :destroy
 
-  validates :address, :type_id, presence: true
-  validates :budget, numericality: { only_integer: true }
-
+  validates :address, :type_id, presence: { message: "Saisissez une adresse valide" }
+  validates :budget, numericality: { message: "Veuillez saisir un budget" }
   after_create :scrap_results
 
   private

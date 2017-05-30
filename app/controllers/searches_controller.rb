@@ -2,6 +2,7 @@
 class SearchesController < ApplicationController
   before_action :find_search, :only => [:show, :destroy]
 
+
   def index
     @searches = Search.where(user: @current_user)
   end
@@ -22,10 +23,18 @@ class SearchesController < ApplicationController
     @search = Search.new(search_params)
     @search.user = current_user
     if @search.save
-      redirect_to @search
+      respond_to do |format|
+        format.html {redirect_to @search}
+        format.js
+      end
     else
-      @types = Type.all.order(name: :asc)
-      render 'pages/home'
+      respond_to do |format|
+        @types = Type.all.order(name: :asc)
+        format.html  {render 'pages/home', layout: "home_layout"}
+        format.js
+      end
+
+
     end
   end
 
