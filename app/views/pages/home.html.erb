@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: /*linear-gradient(0deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),*/ url(<%= image_url 'wagon.jpg' %>);">
+<div class="banner" style="background-image: linear-gradient(0deg, rgba(0,10,10,0.2) 0%, rgba(0,36,61,0.3) 50%), url(<%= image_url 'no_work.jpg' %>);">
   <div class="log-btns">
     <% if user_signed_in? %>
      <div class="navbar-wagon-item">
@@ -12,7 +12,7 @@
             </li>
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profil") %>
               <% end %>
             </li>
             <li>
@@ -36,14 +36,20 @@
   <div class="banner-content">
     <div class="banner-title">
       <h1>Happynvestor</h1>
-      <div id="new-search">
+      <br>
+      <h2>Devenez investisseur, c'est simple !</h2>
+      <br>
         <%=  render "searches/form", search: @search, types: @types %>
-      </div>
     </div>
+      <div class="bottom-arrow text-center">
+        <a href="#concept">
+        <%= image_tag "arrow.svg", class: "floating arrow-img" %>
+        </a>
+      </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="concept">
 
     <div class = "card_home_wrapper">
       <div class = "card_home_img" style = "background-image: url(<%= image_path "rentabilite.jpg" %>);" >
