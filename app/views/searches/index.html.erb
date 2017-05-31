@@ -1,31 +1,11 @@
 <% @title = "Vos recherches" %>
+  <h1>Vos recherches : </h1>
 <div class="wrapper">
-  <div class="container">
-    <h1>Vos recherches : </h1>
-    <%  @searches.each do |search| %>
-    <div class="product" data-search-id= "<%= search.id %>">
-      <div class='product-upvote'>
-
-        <div class='product-count'><%= search.results.size %></div>
-      </div>
-      <img src="http://placehold.it/350x150" alt="kudoz" class="product-image hidden-xs">
-      <div class='product-body'>
-        <h3><%= search.address %></h3>
-        <span><%= search.type.name %></span>
-        <div>Rayon : <%= search.radius %></div>
-        <div>Budget Max : <%= search.budget %> Euros</div>
-        <div>Surface : <%= search.surface_min %></div>
-        <div>Nb. Pièces Min : <%= search.room_min %></div>
-      </div>
-      <ul class="list-inline product-controls hidden-sm hidden-xs">
-        <li>
-          <%= link_to "", search_path(search), method: :delete, remote: true, class: "fa fa-trash-o" %>
-        </li>
-      </ul>
-      <%= link_to "", search, class: "show-link" %>
-    </div>
-    <% end %>
-  </div>
+  <%  @searches.each do |search| %>
+<!--     <div data-search-id= "<%= search.id %>">
+ -->      <%= render "searches_card", search: search %>
+<!--     </div>
+ -->  <% end %>
 </div>
 
 

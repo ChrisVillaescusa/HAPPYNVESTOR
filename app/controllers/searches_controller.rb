@@ -32,6 +32,7 @@ class SearchesController < ApplicationController
 
   def destroy
     @search.destroy
+    redirect_to searches_path
   end
 
   private
