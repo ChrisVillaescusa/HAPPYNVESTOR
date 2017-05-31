@@ -1,0 +1,37 @@
+
+<div class="product">
+  <div class="vertical-align">
+    <div class='product-upvote'>
+      <div class="badge-container">
+        <i class="fa fa-home" style="font-size: 60px;"></i>
+        <div class="badge badge-blue product-count"><%= search.results.size %>
+        </div>
+      </div>
+    </div>
+    <div class='product-upvote'>
+      <div class="badge-container">
+        <i class="fa fa-bar-chart" style="font-size: 60px;"></i>
+        <div class="badge badge-red product-count"><%= Random.rand(4..12) %>%
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class='product-image' style=" background-image: url(<%=  display_static_map(search, '300x200')%>);width: 300px; height: 200px;">
+  <div class='product-body'>
+    <h3>Adresse: <strong><%= search.address %></strong> </h3>
+    <h3>Type: <strong><%= search.type.name %></strong>  </h3>
+    <h3>Budget: <strong><%= search.budget %> €</strong> </h3>
+  </div>
+  <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <li>
+      <%= link_to search_path(search) do %>
+        <i class="fa fa-eye product-count"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to search_path(search), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash product-count"></i>
+      <% end %>
+    </li>
+  </ul>
+</div>
