@@ -46,7 +46,7 @@
 }
 .product-count {
   margin: 2px 0 0;
-  font-size: 70px;
+  font-size: 50px;
   text-align: right;
 }
 .product-arrow {
@@ -125,6 +125,24 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   font-size: 20px;
+}
+
+.badge_result {
+  position: absolute;
+  top: -15px;
+  right: 5px;
+  font-size: 7px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  font-size: 20px;
+  z-index:3;
 }
 .badge-red {
   background: #EE5F5B;
