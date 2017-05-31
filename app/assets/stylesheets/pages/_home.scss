@@ -3,18 +3,18 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .banner {
-    position: absolute;
-    color: #5C5C5C;
-    font-family: 'Helvetica', sans-serif;
-    text-align: center;
-    height: calc(100vh);
-    width: 100%;
-    background-size: cover !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
+  position: absolute;
+  color: #5C5C5C;
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+  height: calc(100vh);
+  width: 100%;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all .15s ease;
   .log-btns {
     position: absolute;
     top: 10px;
@@ -32,8 +32,19 @@
     margin-bottom: 20px;
   }
   .banner-title {
-    color: black;
+    color: white;
   }
+}
+
+.arrow-img {
+  width: 50px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 25px);
+}
+
+#concept {
+  height: 100vh;
 }
 
 $error-color: red;
@@ -44,7 +55,7 @@ $error-color: red;
   margin: 0;
   color: white;
   background: $error-color;
-  left: 100%;
+  right: 100%;
   width: 220px;
   margin-left: -1px;
   top: 0;
@@ -58,9 +69,9 @@ $error-color: red;
     border-width: 8px;
     border-color: transparent;
     border-style: solid;
-    border-right-color: $error-color;
+    border-left-color: $error-color;
     position: absolute;
     top: 9px;
-    left: -16px;
+    right: -16px;
   }
 }

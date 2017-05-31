@@ -1,0 +1,82 @@
+
+
+.search-home-form {
+  width: 70%;
+  margin-left: 15%;
+  height: 100px;
+  display: flex;
+}
+
+.search-home-form-btn {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background-color: #32B796;
+  border: 2px solid #2DA386;
+  &:hover {
+    background-color: darken(#32B796, 10%);
+    border: 2px solid darken(#2DA386, 10%);
+
+  }
+}
+
+.search-home-form-left {
+  width: 80%;
+  height: 100%;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-home-form-right {
+  width: 16%;
+  height: 100%;
+  padding: 9px;
+  margin-left: -1.9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shfl-bottom {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .select {
+    flex: 2;
+  }
+  .form-group {
+    flex: 2;
+    margin-bottom: 0;
+  }
+    .form-control {
+    border-radius: 0 0 0 4px;
+  }
+  &-left {
+    width: 50%;
+    padding-right: 3px;
+  }
+  &-right {
+    width: 50%;
+    padding-left: 3px;
+  }
+}
+
+
+.shfl-top {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form-group {
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .form-control {
+    border-radius: 4px 0 0 0;
+  }
+}
