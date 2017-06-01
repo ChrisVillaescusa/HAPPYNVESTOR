@@ -1,13 +1,7 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.picture %>');">
-  <div class="card-category"><%= result.search.type.name %></div>
+<div class="card" style="<%= result.picture %>">
   <div class="card-description">
-    <h2><%= result.price %>€</h2>
-    <p><%= result.address %></p>
+    <p><%= result.price %>€</p>
   </div>
-  <div class="badge-container badge_result">
-
-    <div class="badge badge-red product-count"><%= Random.rand(4..12) %>%
-    </div>
-  </div>
+  <div class="result-badge result-badge-red"><%= Random.rand(4..12) %>%</div>
   <%= link_to "", local_assigns[:path] ? path : result_path(result), class: "card-link", data: { toggle: "modal", target: "#result-modal" } %>
 </div>
