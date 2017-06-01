@@ -1,11 +1,12 @@
-<% @title = "Vos recherches" %>
-<h1>Vos recherches : </h1>
+<div class="text-center margin-top-50">
+  <span class="title-underline">Vos recherches</span>
+</div>
+
 <div class="search-card-container">
   <%  @searches.each do |search| %>
     <%= render "searches_card", search: search %>
   <% end %>
 </div>
-
 
 <% content_for(:after_js) do %>
   <script>
