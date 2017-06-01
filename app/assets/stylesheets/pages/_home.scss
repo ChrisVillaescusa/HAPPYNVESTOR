@@ -3,16 +3,18 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .banner {
-    position: absolute;
-    color: #5C5C5C;
-    text-align: center;
-    height: calc(100vh);
-    width: 100%;
-    background-size: cover !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  position: absolute;
+  color: #5C5C5C;
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+  height: calc(100vh);
+  width: 100%;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all .15s ease;
   .log-btns {
     position: absolute;
     top: 10px;
@@ -30,8 +32,46 @@
     margin-bottom: 20px;
   }
   .banner-title {
-    color: black;
-    font-family: 'Vollkorn', serif;
-    // font-family: 'Lilita One', cursive;
+    color: white;
+  }
+}
+
+.arrow-img {
+  width: 50px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 25px);
+}
+
+#concept {
+  height: 100vh;
+}
+
+$error-color: red;
+
+// classe pour les messages d'erreurs de la home
+.has-error .help-block {
+  position: absolute;
+  margin: 0;
+  color: white;
+  background: $error-color;
+  right: 100%;
+  width: 220px;
+  margin-left: -1px;
+  top: 0;
+  padding: 6px 0px;
+  border-radius: 4px;
+  margin-top: 1px;
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-color: transparent;
+    border-style: solid;
+    border-left-color: $error-color;
+    position: absolute;
+    top: 9px;
+    right: -16px;
   }
 }

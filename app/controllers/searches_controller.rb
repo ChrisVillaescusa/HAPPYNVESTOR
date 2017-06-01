@@ -2,8 +2,9 @@
 class SearchesController < ApplicationController
   before_action :find_search, :only => [:show, :destroy]
 
+
   def index
-    @searches = Search.all
+    @searches = Search.where(user: current_user)
   end
 
   def show
@@ -21,11 +22,11 @@ class SearchesController < ApplicationController
   def create
     @search = Search.new(search_params)
     @search.user = current_user
+    @types = Type.all.order(name: :asc)
     if @search.save
-      redirect_to @search
+      redirect_to search_path(@search)
     else
-      @types = Type.all.order(name: :asc)
-      render 'pages/home'
+      render 'pages/home', layout: "home_layout"
     end
   end
 

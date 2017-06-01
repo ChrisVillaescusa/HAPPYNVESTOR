@@ -467,10 +467,10 @@ expandOpen
 
 @keyframes expandOpen {
   0% {
-    transform: scale(1.8);
+    transform: scale(1.1);
   }
   50% {
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
   80% {
     transform: scale(1.05);
@@ -777,8 +777,8 @@ floating
   animation-name: floating;
   -webkit-animation-name: floating;
 
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 20s;
+  -webkit-animation-duration: 20s;
 
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
@@ -788,11 +788,18 @@ floating
   0% {
     transform: translateY(0%);
   }
+
+   2% {
+    transform: translateY(-3%);
+  }
+   4% {
+    transform: translateY(-3%);
+  }
   50% {
-    transform: translateY(8%);
+    transform: translateY(-3%);
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(-3%);
   }
 }
 
@@ -801,7 +808,7 @@ floating
     -webkit-transform: translateY(0%);
   }
   50% {
-    -webkit-transform: translateY(8%);
+    -webkit-transform: translateY(3%);
   }
   100% {
     -webkit-transform: translateY(0%);
@@ -1079,25 +1086,25 @@ stretchRight
 
 @keyframes stretchRight {
   0% {
-    transform: scaleX(0.3);
+    transform: scaleX(1);
   }
   40% {
     transform: scaleX(1.02);
   }
   60% {
-    transform: scaleX(0.98);
+    transform: scaleX(1.03);
   }
   80% {
-    transform: scaleX(1.01);
+    transform: scaleX(1.04);
   }
   100% {
-    transform: scaleX(0.98);
+    transform: scaleX(1.05);
   }
   80% {
-    transform: scaleX(1.01);
+    transform: scaleX(1.06);
   }
   100% {
-    transform: scaleX(1);
+    transform: scaleX(1.07);
   }
 }
 

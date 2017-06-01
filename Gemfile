@@ -13,7 +13,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'geocoder'
-gem "gmaps4rails"
+gem 'gmaps4rails'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'sidekiq'
@@ -21,6 +21,8 @@ gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
 gem 'sinatra', require: false
 gem 'devise-i18n'
 gem 'callr'
+gem 'pundit'
+gem 'httparty'
 
 
 source 'https://rails-assets.org' do

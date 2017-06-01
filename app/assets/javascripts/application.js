@@ -7,3 +7,13 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+$('.card_home_wrapper').hover(
+       function(){ $(this).addClass('hatch') },
+       function(){ $(this).removeClass('hatch') }
+)
+
+$('.product').hover(
+       function(){ $(this).addClass('floating') },
+       function(){ $(this).removeClass('floating') }
+)

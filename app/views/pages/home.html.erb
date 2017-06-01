@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: /*linear-gradient(0deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),*/ url(<%= image_url 'wagon.jpg' %>);">
+<div class="banner" style="background-image: linear-gradient(0deg, rgba(0,10,10,0.2) 0%, rgba(0,36,61,0.3) 50%), url(<%= image_url 'no_work.jpg' %>);">
   <div class="log-btns">
     <% if user_signed_in? %>
      <div class="navbar-wagon-item">
@@ -12,7 +12,7 @@
             </li>
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profil") %>
               <% end %>
             </li>
             <li>
@@ -36,16 +36,49 @@
   <div class="banner-content">
     <div class="banner-title">
       <h1>Happynvestor</h1>
-        <%= simple_form_for(@search) do |f| %>
-          <%= f.input :address, placeholder: "Saisissez une Adresse", label: false %>
-          <%= f.input :type_id, collection: @types, default: @types.first, label: false %> <!-- eventuellement faire un select sur le type -->
-          <%= f.input :budget, placeholder: "Budget max", label: false %>
-          <%= f.input :surface_min, placeholder: "Surface min", label: false %>
-          <%= f.input :room_min, placeholder: "Pièces min", label: false %>
-          <%= f.button :submit,'Valider votre recherche', class: "btn btn-success btn-block btn-lg" %>
-        <% end %>
+      <br>
+      <h2>Devenez investisseur, c'est simple !</h2>
+      <br>
+        <%=  render "searches/form", search: @search, types: @types %>
     </div>
+      <div class="bottom-arrow text-center">
+        <%= image_tag "arrow.svg", class: "floating arrow-img" %>
+      </div>
   </div>
 </div>
 
- <!-- :collection => :radius, :label_method => :radius, -->
+<div class="container" id="concept">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Rentabilité</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "profitability.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Nous vous permettons de trouver facilement le bien idéal avec un comparateur de rentabilité</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Simplicité</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "simplicite.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Nous recensons pour vous toutes les offres immobilières en un seul clique</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Gain de temps</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "time.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Soyez allerté en temps réel de toutes nouvelles offres par sms</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :meta_title, "Facilitez vos achats avec #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description,"Gagnez du temps et de l'argent en quelques clics." %>
+<% content_for :meta_image, cloudinary_url("https://www.whitehouse.gov/sites/whitehouse.gov/files/og-image.png") %>
+

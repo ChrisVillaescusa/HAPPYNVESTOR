@@ -1,0 +1,23 @@
+<%= simple_form_for(search) do |f| %>
+  <div class="search-home-form">
+    <div class="search-home-form-left">
+      <div class="shfl-top">
+        <%= f.input :address, placeholder: "Saisissez une Adresse", label: false, class: "address" %>
+      </div>
+      <div class="shfl-bottom">
+        <div class="shfl-bottom-left">
+          <%= f.input :budget, placeholder: "Budget max", label: false, class: "budget" %>
+        </div>
+        <div class="shfl-bottom-right">
+          <%= f.input :type_id, collection: types, default: types.first, label: false, class: "type" %>
+        </div>
+      </div>
+    </div>
+    <div class="search-home-form-right">
+
+     <%= button_tag( :class => "search-home-form-btn") do %>
+                <i class="fa fa-search fa-lg"></i>
+        <% end %>
+    </div>
+  </div>
+<% end %>
