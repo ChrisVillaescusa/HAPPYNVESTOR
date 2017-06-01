@@ -3,4 +3,17 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
+  margin-top: 10px;
 }
+
+.title-underline {
+  font-size: 41px;
+  // margin-bottom: -31px;
+  border-bottom: 0px solid rgba(106,216,106,0.6);
+  box-shadow: inset 0 -17px 0 rgba(106,216,106,0.55);
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
+
