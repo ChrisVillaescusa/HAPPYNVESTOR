@@ -38,7 +38,7 @@
       &-price {
         font-size: 14px;
         font-weight: bold;
-        color: rgb(190, 30, 30)
+        color: #ed312c;
       }
     }
     &-icons {
@@ -47,6 +47,15 @@
       align-items: center;
       width: 50%;
       font-size: 20px
+    }
+  }
+  &-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 4;
+    color: grey;
+    a {
     }
   }
   &-link {

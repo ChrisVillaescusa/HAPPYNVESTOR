@@ -8,9 +8,11 @@ class Result < ApplicationRecord
 
   def picture
     if self.img?
-       self.img
+       "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#{self.img}'); background-size: cover !important; background-position: center;
+
+"
     else
-      ActionController::Base.helpers.image_path 'missing_result_pic.svg'
+      "background-image: url('#{ActionController::Base.helpers.image_path 'missing_result_pic.svg'}'); background-position: center; background-size: 84%; background-repeat: no-repeat;"
     end
   end
 

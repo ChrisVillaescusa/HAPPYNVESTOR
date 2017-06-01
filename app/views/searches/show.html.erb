@@ -29,12 +29,13 @@
       <%= image_tag display_static_map(@search, '400x600') %>
     </div>
     <%= render 'result_modal' %>
+  </div>
 </div>
 
 
-<% content_for :meta_title, "Vos recherches" %>
-<% content_for :meta_description, "Gagnez du temps et de l'argent avec HAPPYNVESTOR" %>
-<% content_for :meta_image, cloudinary_url("http://www.hempsteadhouse.co.uk/assets/images/hh-fb-holder.jpg") %>
+<%# content_for :meta_title, "Vos recherches" %>
+<%# content_for :meta_description, "Gagnez du temps et de l'argent avec HAPPYNVESTOR" %>
+<%# content_for :meta_image, cloudinary_url("http://www.hempsteadhouse.co.uk/assets/images/hh-fb-holder.jpg") %>
 
 <% content_for :after_js do %>
   <script>

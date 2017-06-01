@@ -20,5 +20,8 @@
     </div>
   </div>
   <%= link_to "", search, class: "search-card-link" %>
+  <%= link_to search_path(search), method: :delete, class: "search-card-delete" do %>
+      <i class="fa fa-trash"></i>
+  <% end %>
 
 </div>
