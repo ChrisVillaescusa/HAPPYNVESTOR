@@ -1,11 +1,9 @@
 <% @title = "Vos recherches" %>
-  <h1>Vos recherches : </h1>
-<div class="wrapper">
+<h1>Vos recherches : </h1>
+<div class="search-card-container">
   <%  @searches.each do |search| %>
-<!--     <div data-search-id= "<%= search.id %>">
- -->      <%= render "searches_card", search: search %>
-<!--     </div>
- -->  <% end %>
+    <%= render "searches_card", search: search %>
+  <% end %>
 </div>
 
 
