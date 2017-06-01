@@ -42,63 +42,43 @@
         <%=  render "searches/form", search: @search, types: @types %>
     </div>
       <div class="bottom-arrow text-center">
-        <a href="#concept">
         <%= image_tag "arrow.svg", class: "floating arrow-img" %>
-        </a>
       </div>
   </div>
 </div>
 
 <div class="container" id="concept">
-
-    <div class = "card_home_wrapper">
-      <div class = "card_home_img" style = "background-image: url(<%= image_path "rentabilite.jpg" %>);" >
-      </div>
-      <div class="card_home_box">
-        <header class="card_home_item card_home_header">
-          <h2 class = "card_home_item card_home_item--small card_home_title">Rentabilité
-          </h2>
-        </header>
-        <hr class = "card_home_item card_home_divider">
-        <div >
-          <p>Comparateur de rentabilité.</p>
-          <p>Nous vous permettons de trouver facilement le bien idéal.</p>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Rentabilité</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "profitability.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Nous vous permettons de trouver facilement le bien idéal avec un comparateur de rentabilité</p>
         </div>
       </div>
     </div>
-
-    <div class="card_home_wrapper">
-      <div class="card_home_img" style="background-image: url(<%= image_path "simplicite.jpg" %>);">
-      </div>
-      <div class="card_home_box">
-        <header class="card_home_item card_home_header">
-          <h2 class="card_home_item card_home_item--small card_home_title">Simplicité</h2>
-        </header>
-        <hr class="card_home_item card_home_divider">
-        <div>
-          <p>Quelques clics suffisent.</p>
-          <p>Nous vous simplifions votre recherche et l'identification de vos acteurs.</p>
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Simplicité</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "simplicite.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Nous recensons pour vous toutes les offres immobilières en un seul clique</p>
         </div>
       </div>
     </div>
-
-    <div class="card_home_wrapper">
-      <div class="card_home_img" style="background-image: url(<%= image_path "temps.jpg" %>);">
-      </div>
-      <div class="card_home_box">
-        <header class="card_home_item card_home_header">
-          <h2 class="card_home_item card_home_item--small card_home_title">Gain de temps</h2>
-        </header>
-        <hr class="card_home_item card_home_divider">
-        <div>
-          <p>Alerte par SMS.</p>
-          <p>Toutes les informations viennent à vous automatiquement.</p>
+    <div class="col-sm-4">
+      <div class="home-card text-center">
+        <div class="home-card-title">Gain de temps</div>
+        <div class="home-card-img" style= "background-image: url(<%= image_path "time.jpg" %>);"></div>
+        <div class="home-card-content">
+          <p>Soyez allerté en temps réel de toutes nouvelles offres par sms</p>
         </div>
       </div>
     </div>
-
-
+  </div>
 </div>
 <% content_for :meta_title, "Facilitez vos achats avec #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description,"Gagnez du temps et de l'argent en quelques clics." %>
 <% content_for :meta_image, cloudinary_url("https://www.whitehouse.gov/sites/whitehouse.gov/files/og-image.png") %>
+

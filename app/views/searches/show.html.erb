@@ -22,14 +22,19 @@
     <% else %>
       <div class="waiting-container text-center">
         <h3>Un instant...</h3>
-        <p>Nos serveurs sortent leur loupe pour trouver les meilleurs annonces...</p>
+        <p>Nos serveurs sortent leurs loupes pour trouver les meilleurs annonces...</p>
       </div>
     <% end %>
     <div class="map-container">
-      <%= image_tag display_static_map(@search) %>
+      <%= image_tag display_static_map(@search, '400x600') %>
     </div>
     <%= render 'result_modal' %>
 </div>
+
+
+<% content_for :meta_title, "Coco est sur #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "description" %>
+<% content_for :meta_image, cloudinary_url("http://retraite-en-thailande.com/files/2016/03/10-ml-arome-noix-de-coco-fa-coco-flavor-coconut.jpg") %>
 
 <% content_for :after_js do %>
   <script>

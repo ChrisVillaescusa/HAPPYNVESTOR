@@ -24,7 +24,7 @@ class SearchesController < ApplicationController
     @search.user = current_user
     @types = Type.all.order(name: :asc)
     if @search.save
-      redirect_to @search
+      redirect_to search_path(@search)
     else
       render 'pages/home', layout: "home_layout"
     end
@@ -32,6 +32,7 @@ class SearchesController < ApplicationController
 
   def destroy
     @search.destroy
+    redirect_to searches_path
   end
 
   private

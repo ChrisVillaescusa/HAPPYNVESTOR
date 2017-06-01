@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <title><%#= @title || "Happynvestor" %></title> -->
     <title><%= meta_title %></title>
-<meta name="description" content="<%= meta_description %>">
+    <meta name="description" content="<%= meta_description %>">
 
-<!-- Facebook Open Graph data -->
-<meta property="og:title" content="<%= meta_title %>" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="<%= request.original_url %>" />
-<meta property="og:image" content="<%= meta_image %>" />
-<meta property="og:description" content="<%= meta_description %>" />
-<meta property="og:site_name" content="<%= meta_title %>" />
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/animations.css">
   </head>
   <body>
+
     <%= render_navbar %>
     <%= render 'shared/flashes' %>
     <%= yield %>
@@ -32,6 +33,9 @@
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+    <%= yield(:meta_title) %>
+    <%= yield(:meta_description) %>
+    <%= yield(:meta_image) %>
     <%= yield(:after_js) %>
   </body>
 </html>

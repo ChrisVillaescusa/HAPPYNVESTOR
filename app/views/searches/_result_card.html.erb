@@ -4,5 +4,10 @@
     <h2><%= result.price %>€</h2>
     <p><%= result.address %></p>
   </div>
+  <div class="badge-container badge_result">
+
+    <div class="badge badge-red product-count"><%= Random.rand(4..12) %>%
+    </div>
+  </div>
   <%= link_to "", local_assigns[:path] ? path : result_path(result), class: "card-link", data: { toggle: "modal", target: "#result-modal" } %>
 </div>
