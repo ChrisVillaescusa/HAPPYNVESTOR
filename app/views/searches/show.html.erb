@@ -25,9 +25,7 @@
         <p>Nos serveurs sortent leurs loupes pour trouver les meilleurs annonces...</p>
       </div>
     <% end %>
-    <div class="map-container">
-      <%= image_tag display_static_map(@search, '400x600') %>
-    </div>
+      <div class="map-container" style="background-image: url(<%=  display_static_map(@search, '400x600')%>)"></div>
     <%= render 'result_modal' %>
   </div>
 </div>
