@@ -7,8 +7,11 @@ $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Vollkorn", "serif";
 
 @import url('https://fonts.googleapis.com/css?family=Lilita+One|Vollkorn:400,700');
-// Local fonts (uncomment following lines)
-// @font-face {
+@import url('https://fonts.googleapis.com/css?family=Lobster|Satisfy');
+$brand-font: "Lobster";
+
+//  Local fonts (uncomment following lines)
+//  @font-face {
 //   font-family: "Font Name";
 //   src: font-url('FontFile.eot');
 //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
