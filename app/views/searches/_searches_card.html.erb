@@ -5,7 +5,7 @@
   <div class="search-card-map" style="background-image: url(<%=  display_static_map(search, '300x400')%>)"></div>
   <div class="search-card-content">
     <div class="search-card-content-desc">
-      <p class="search-card-content-desc-price"><%= search.budget.to_s.gsub(/...(?=.)/,'\& ') %> €</p>
+      <p class="search-card-content-desc-price"><%= search.budget.to_s.reverse.to_s.gsub(/...(?=.)/,'\& ').reverse %> €</p>
       <p><%= search.type.name %></p>
     </div>
     <div class="search-card-content-icons">
