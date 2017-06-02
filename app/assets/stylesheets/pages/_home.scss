@@ -2,18 +2,22 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .banner {
   position: absolute;
-  color: #5C5C5C;
+  position: relative;
   font-family: 'Arimo', sans-serif;
   text-align: center;
-  height: calc(100vh);
+  height: 100vh;
   width: 100%;
-  background-size: cover !important;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   transition: all .15s ease;
   .log-btns {
     position: absolute;
@@ -45,7 +49,10 @@
   left: calc(50% - 25px);
 }
 
-#concept {
+.concept-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
 }
 
