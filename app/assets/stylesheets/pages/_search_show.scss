@@ -2,11 +2,14 @@
 .show-wrapper {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 93vh;
   align-items: stretch;
-  margin-top: 75px;
+  // margin-top: 75px;
+  padding-right: 10px;
   .search-infos {
-    height: 30%;
+    // height: 30%;
+    flex: 2;
+    margin-top: 40px;
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
@@ -24,6 +27,7 @@
   .show-container {
     display: flex;
     flex-grow: 10;
+    flex: 8;
     .results-container {
       display: flex;
       padding: 10px;
@@ -39,10 +43,17 @@
     .waiting-container {
       display: flex;
       flex-grow: 1;
+      flex: 8;
       flex-direction: column;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      color: white;
+      font-family: 'Montserrat';
+      h3 {
+        font-family: 'Montserrat';
+      }
       .waiting {
+        margin-bottom: 30px;
       }
     }
     .map-container {
